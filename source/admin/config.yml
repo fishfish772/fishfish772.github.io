@@ -9,6 +9,7 @@ backend:
   repo: fishfish772/fishfish772.github.io
   branch: main
   auth_type: implicit
+  app_id: Ov23li0S7IYUnUvwq4A1
   open_authoring: false
 
 # 本地联调代理（npx decap-server 启动后访问 /admin/）
