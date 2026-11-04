@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>fishfish772</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://fishfish772.github.io/</id>
+  <link href="https://fishfish772.github.io/" rel="alternate"/>
+  <link href="https://fishfish772.github.io/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, fishfish772</rights>
+  <subtitle>这里写你的副标题</subtitle>
+  <title>FishFish</title>
+  <updated>2026-11-04T02:30:00.000Z</updated>
+  <entry>
+    <author>
+      <name>fishfish772</name>
+    </author>
+    <category term="博客搭建" scheme="https://fishfish772.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <category term="Hexo" scheme="https://fishfish772.github.io/tags/Hexo/"/>
+    <category term="Butterfly" scheme="https://fishfish772.github.io/tags/Butterfly/"/>
+    <content>
+      <![CDATA[<p>欢迎来到新博客！本文用于一次性验证全部渲染链路：代码高亮、数学公式、三种图片来源与灯箱查看。</p><h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">egcd</span><span class="token punctuation">(</span>a<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">if</span> b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>        <span class="token keyword">return</span> a<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span>    g<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y <span class="token operator">=</span> egcd<span class="token punctuation">(</span>b<span class="token punctuation">,</span> a <span class="token operator">%</span> b<span class="token punctuation">)</span>    <span class="token keyword">return</span> g<span class="token punctuation">,</span> y<span class="token punctuation">,</span> x <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">//</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> y<span class="token keyword">print</span><span class="token punctuation">(</span>egcd<span class="token punctuation">(</span><span class="token number">240</span><span class="token punctuation">,</span> <span class="token number">46</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><p>行内公式 $e &#x3D; \sum_{i&#x3D;0}^{n} a_i p^i$，以及块级公式：</p><p>$$<br>\varphi(n) &#x3D; (p-1)(q-1), \quad d \equiv e^{-1} \pmod{\varphi(n)}<br>$$</p><h2 id="图片来源一：Markdown-外链图床"><a href="#图片来源一：Markdown-外链图床" class="headerlink" title="图片来源一：Markdown 外链图床"></a>图片来源一：Markdown 外链图床</h2><p><img src="https://picsum.photos/seed/fishfish-blog/800/450" alt="外链图床示例"></p><h2 id="图片来源二：在线编辑粘贴上传（-images-媒体库）"><a href="#图片来源二：在线编辑粘贴上传（-images-媒体库）" class="headerlink" title="图片来源二：在线编辑粘贴上传（&#x2F;images&#x2F; 媒体库）"></a>图片来源二：在线编辑粘贴上传（&#x2F;images&#x2F; 媒体库）</h2><p><img src="/images/sample-upload.svg" alt="本地上传示例"></p><h2 id="图片来源三：文章资源文件夹（相对路径）"><a href="#图片来源三：文章资源文件夹（相对路径）" class="headerlink" title="图片来源三：文章资源文件夹（相对路径）"></a>图片来源三：文章资源文件夹（相对路径）</h2><p><img src="/2026/11/04/hello-world/asset-sample.svg" alt="资源文件夹示例"></p><blockquote><p>以上任意图片点击均可灯箱放大查看。</p></blockquote>]]>
+    </content>
+    <id>https://fishfish772.github.io/2026/11/04/hello-world/</id>
+    <link href="https://fishfish772.github.io/2026/11/04/hello-world/"/>
+    <published>2026-11-04T02:30:00.000Z</published>
+    <summary>
+      <![CDATA[<p>欢迎来到新博客！本文用于一次性验证全部渲染链路：代码高亮、数学公式、三种图片来源与灯箱查看。</p>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><pre]]>
+    </summary>
+    <title>Hello World —— 博客功能自检</title>
+    <updated>2026-11-04T02:30:00.000Z</updated>
+  </entry>
+</feed>

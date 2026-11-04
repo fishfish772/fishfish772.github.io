@@ -1,0 +1,27 @@
+/* ============================================================
+ * 仿原站入场加载动画（预留扩展位，默认未启用）
+ * 启用步骤：
+ * 1. 准备一张横向背景图，放到 source/image/entry-bg.png
+ * 2. 在 _config.butterfly.yml 的 inject.head 取消注释 entry.css，
+ *    并在 inject.bottom 加入你的加载脚本
+ * 3. 参考原站思路：全屏遮罩层 + 背景图 + 标语文字，加载完成后淡出
+ * ============================================================ */
+
+#entry-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('/image/entry-bg.png') center / cover no-repeat;
+  color: #fff;
+  font-size: 1.4em;
+  letter-spacing: .2em;
+  transition: opacity .6s;
+}
+
+#entry-overlay.entry-done {
+  opacity: 0;
+  pointer-events: none;
+}
