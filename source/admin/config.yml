@@ -1,0 +1,147 @@
+# ================================================================
+# Decap CMS 配置
+# 在线编辑入口：/admin/
+# ================================================================
+
+# 后端：GitHub 隐式 OAuth（仓库必须 public）
+backend:
+  name: github
+  repo: fishfish772/fishfish772.github.io
+  branch: main
+  auth_type: implicit
+  open_authoring: false
+
+# 本地联调代理（npx decap-server 启动后访问 /admin/）
+local_backend: true
+
+# 媒体库：图片存到 source/images/，前台路径 /images/
+media_folder: "source/images"
+public_folder: "/images"
+
+# 文章资源文件夹（与 post_asset_folder: true 对应）
+site_url: https://fishfish772.github.io/
+display_url: https://fishfish772.github.io/
+logo_url: /img/favicon.png
+
+# ================================================================
+# 集合：文章 / 页面 / 数据文件
+# ================================================================
+collections:
+  # ---------- 文章 ----------
+  - name: "posts"
+    label: "文章"
+    label_singular: "文章"
+    folder: "source/_posts"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "{{year}}/{{month}}/{{day}}/{{slug}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", default: "{{now}}" }
+      - { label: "更新日期", name: "updated", widget: "datetime", default: "{{now}}" }
+      - { label: "标签", name: "tags", widget: "list", default: [] }
+      - { label: "分类", name: "categories", widget: "list", default: [] }
+      - { label: "封面图", name: "cover", widget: "image", required: false }
+      - { label: "启用 MathJax", name: "mathjax", widget: "boolean", default: false }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  # ---------- 页面 ----------
+  - name: "pages"
+    label: "页面"
+    files:
+      - name: "about"
+        label: "关于"
+        file: "source/about/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string", default: "关于" }
+          - { label: "正文", name: "body", widget: "markdown" }
+      - name: "messageboard"
+        label: "留言板"
+        file: "source/messageboard/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string", default: "留言板" }
+          - { label: "正文", name: "body", widget: "markdown" }
+      - name: "music"
+        label: "音乐"
+        file: "source/music/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string", default: "音乐" }
+          - { label: "正文", name: "body", widget: "markdown" }
+      - name: "friends"
+        label: "朋友圈"
+        file: "source/friends/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string", default: "朋友圈" }
+          - { label: "正文", name: "body", widget: "markdown" }
+      - name: "bookmarks"
+        label: "收藏"
+        file: "source/bookmarks/index.md"
+        fields:
+          - { label: "标题", name: "title", widget: "string", default: "收藏" }
+          - { label: "正文", name: "body", widget: "markdown" }
+
+  # ---------- 数据文件（对应预留页内容） ----------
+  - name: "data"
+    label: "数据"
+    files:
+      - name: "shuoshuo"
+        label: "随笔"
+        file: "source/_data/shuoshuo.yml"
+        fields:
+          - label: "条目"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "作者（空=默认）", name: "author", widget: "string", required: false }
+              - { label: "头像（空=默认）", name: "avatar", widget: "image", required: false }
+              - { label: "日期", name: "date", widget: "datetime" }
+              - { label: "内容（支持 HTML）", name: "content", widget: "text" }
+              - { label: "标签", name: "tags", widget: "list", required: false }
+
+      - name: "link"
+        label: "友链"
+        file: "source/_data/link.yml"
+        fields:
+          - label: "分组"
+            name: "groups"
+            widget: "list"
+            fields:
+              - { label: "分组名", name: "class_name", widget: "string" }
+              - { label: "分组描述", name: "class_desc", widget: "string", required: false }
+              - label: "友链列表"
+                name: "link_list"
+                widget: "list"
+                fields:
+                  - { label: "名称", name: "name", widget: "string" }
+                  - { label: "链接", name: "link", widget: "string" }
+                  - { label: "头像", name: "avatar", widget: "image" }
+                  - { label: "描述", name: "descr", widget: "string", required: false }
+
+      - name: "gallery"
+        label: "相册"
+        file: "source/_data/gallery.yml"
+        fields:
+          - label: "分组"
+            name: "groups"
+            widget: "list"
+            fields:
+              - { label: "相册名", name: "name", widget: "string" }
+              - { label: "描述", name: "desc", widget: "string", required: false }
+              - label: "图片"
+                name: "data"
+                widget: "list"
+                fields:
+                  - { label: "图片", name: "path", widget: "image" }
+                  - { label: "描述", name: "desc", widget: "string", required: false }
+
+      - name: "timeline"
+        label: "时间线"
+        file: "source/_data/timeline.yml"
+        fields:
+          - label: "条目"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "日期", name: "date", widget: "datetime" }
+              - { label: "标题", name: "title", widget: "string", required: false }
+              - { label: "内容（支持 HTML）", name: "content", widget: "markdown" }

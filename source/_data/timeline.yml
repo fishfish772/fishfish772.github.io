@@ -1,0 +1,8 @@
+# 时间线数据（由 /admin/ → 数据 → 时间线 在线编辑，或手动维护）
+items:
+  - date: '2026-11-04'
+    title: 博客搭建完成
+    content: 仿 lamb-fish 的 Hexo + Butterfly 博客上线，预留功能页就位。
+  - date: '2026-10-01'
+    title: 示例事件
+    content: 时间线支持按年份自动分组，倒序展示。

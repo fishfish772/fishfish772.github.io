@@ -1,0 +1,43 @@
+# ================================================================
+# GitHub Pages 自动部署：main(源码) -> 构建 -> gh-pages(站点)
+# 触发：push main（含 Decap CMS 在线编辑提交）/ 手动 workflow_dispatch
+# ================================================================
+name: Deploy Hexo to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # npm 11 的 allow-scripts 可能跳过 postinstall，显式重建以防高亮组件缺失
+      - name: Ensure native builds
+        run: npm rebuild hexo-util
+
+      - name: Build site
+        run: npx hexo clean && npx hexo generate
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages

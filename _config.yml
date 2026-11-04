@@ -1,0 +1,119 @@
+# ================================================================
+# Hexo 站点主配置
+# 仿 lamb-fish.github.io 结构，站点: https://fishfish772.github.io/
+# ================================================================
+
+# Site
+title: FishFish
+subtitle: 这里写你的副标题
+description: 个人博客 —— 学习笔记 / 生活随想
+keywords:
+author: fishfish772
+language: zh-CN
+timezone: 'Asia/Shanghai'
+
+# URL
+url: https://fishfish772.github.io/
+root: /
+# 部署到项目子路径时改为 /仓库名/（当前为根域名站点，保持 /）
+asset_dir:
+
+# Permalink
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true
+  trailing_html: true
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - admin/config.yml   # Decap CMS 配置需原样输出为 .yml
+  - admin/index.html   # CMS 入口页不能被主题模板包裹
+
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: true          # 支持文章资源文件夹（相对路径图片）
+relative_link: false
+future: true
+syntax_highlighter: prismjs      # Butterfly 代码高亮依赖
+prismjs:
+  line_number: true
+  tab_replace: ''
+  preprocess: true
+marked:
+  gfm: true
+  prependRoot: true
+  postAsset: true                # 文章相对路径图片解析到资源文件夹
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata
+meta_generator: true
+
+# Date / Time format
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: 'mtime'
+
+# Pagination
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude
+include:
+exclude:
+ignore:
+
+# Extensions: 主题在 themes/butterfly（自定义配置见根目录 _config.butterfly.yml）
+theme: butterfly
+
+# ================================================================
+# 插件配置
+# ================================================================
+
+# 本地搜索（生成 search.xml，对应原站搜索）
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
+# RSS（朋友圈页预留依赖）
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content: true
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+
+# 归档分组
+archive_generator:
+  per_page: 0
+  yearly: true
+  monthly: true
+  daily: false
+
+# ================================================================
+# 部署：由 GitHub Actions 构建发布（.github/workflows/deploy.yml）
+# 不再使用 hexo-deployer-git
+# ================================================================

@@ -1,0 +1,33 @@
+extends includes/layout.pug
+
+//- 时间线页：数据源 source/_data/timeline.yml，按年份分组、倒序
+//- 注意：此文件为自定义 layout，重新复制主题时需保留
+
+block content
+  #article-container.container
+    style.
+      .timeline-wrap{position:relative;padding-left:24px;border-left:2px solid rgba(73,177,245,.35);margin:1em 0}
+      .timeline-year{font-size:1.4em;font-weight:600;margin:1.2em 0 .6em;position:relative}
+      .timeline-year::before{content:'';position:absolute;left:-31px;top:.45em;width:12px;height:12px;border-radius:50%;background:#49b1f5}
+      .timeline-item{margin:0 0 1.2em;position:relative}
+      .timeline-item::before{content:'';position:absolute;left:-29px;top:.5em;width:8px;height:8px;border-radius:50%;background:#a1a1a1}
+      .timeline-date{font-size:.85em;color:#888}
+      .timeline-title{font-weight:600;margin:.15em 0}
+      .timeline-text{color:#555}
+      .timeline-empty{padding:3em 0;text-align:center;color:#999}
+    - const items = ((site.data.timeline && site.data.timeline.items) || []).slice().sort((a, b) => new Date(b.date) - new Date(a.date))
+    if items.length
+      - let lastYear = ''
+      .timeline-wrap
+        each item in items
+          - const y = String(new Date(item.date).getFullYear())
+          if y !== lastYear
+            - lastYear = y
+            .timeline-year= y
+          .timeline-item
+            time.timeline-date= item.date
+            if item.title
+              .timeline-title= item.title
+            .timeline-text!= item.content
+    else
+      .timeline-empty 时间线内容待填充：编辑 source/_data/timeline.yml，或在 /admin/ → 数据 → 时间线 在线添加

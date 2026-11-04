@@ -1,0 +1,30 @@
+extends includes/layout.pug
+
+//- 相册页：数据源 source/_data/gallery.yml（分组 -> 图片）
+//- 注意：此文件为自定义 layout，重新复制主题时需保留
+
+block content
+  #article-container.container
+    style.
+      .gallery-group-title{margin:1.5em 0 .3em}
+      .gallery-group-desc{color:#777;margin-bottom:1em}
+      .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:2em}
+      .gallery-item{border-radius:8px;overflow:hidden;background:rgba(255,255,255,.5)}
+      .gallery-item img{width:100%;height:160px;object-fit:cover;display:block;transition:transform .3s}
+      .gallery-item:hover img{transform:scale(1.05)}
+      .gallery-item-desc{padding:6px 10px;font-size:.9em;color:#666}
+      .gallery-empty{padding:3em 0;text-align:center;color:#999}
+    - const groups = (site.data.gallery && site.data.gallery.groups) || []
+    if groups.length
+      each group in groups
+        h2.gallery-group-title= group.name
+        if group.desc
+          .gallery-group-desc= group.desc
+        .gallery-grid
+          each item in (group.data || [])
+            .gallery-item
+              img(src=url_for(item.path) alt=item.desc || group.name)
+              if item.desc
+                .gallery-item-desc= item.desc
+    else
+      .gallery-empty 相册内容待填充：编辑 source/_data/gallery.yml，或在 /admin/ → 数据 → 相册 在线添加

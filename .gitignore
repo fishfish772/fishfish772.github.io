@@ -1,0 +1,17 @@
+# Hexo 构建产物
+public/
+.deploy*/
+db.json
+
+# Node
+node_modules/
+npm-debug.log*
+
+# IDE / 环境
+.DS_Store
+Thumbs.db
+.env
+
+# 工作区私有（Trae 文档/计划等）
+.trae/
+.trae-cn/
