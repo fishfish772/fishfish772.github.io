@@ -21,7 +21,7 @@ public_folder: "/images"
 # 文章资源文件夹（与 post_asset_folder: true 对应）
 site_url: https://fishfish772.github.io/
 display_url: https://fishfish772.github.io/
-logo_url: /img/favicon.png
+logo_url: /img/favicon.ico
 
 # ================================================================
 # 集合：文章 / 页面 / 数据文件

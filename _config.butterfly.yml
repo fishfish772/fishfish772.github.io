@@ -34,6 +34,8 @@ avatar:
   img: /images/avatar.png
   effect: false
 top_img: /images/banner.png
+index_img: /images/banner.png
+favicon: /img/favicon.ico
 
 # ---------------- 侧栏卡片（仿原站：最新文章/分类/标签/归档/网站信息） ----------------
 aside:
